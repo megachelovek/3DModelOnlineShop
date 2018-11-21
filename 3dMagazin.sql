@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS models (
   PRIMARY KEY ("id_author","id_model")
   
 );
-CREATE TABLE IF NOT EXISTS sail (
+CREATE TABLE IF NOT EXISTS sale (
   "id_author"   BIGINT NOT NULL,
   "id_buyer"    BIGINT NOT NULL,
   "id_model"    BIGINT NOT NULL,
@@ -54,5 +54,5 @@ CREATE TABLE IF NOT EXISTS sail_story (
   "id_model"    BIGINT NOT NULL,
   "date"        DATE NOT NULL,
   PRIMARY KEY ("id_author","id_buyer","id_model"),
-  FOREIGN KEY ("id_author","id_model","id_buyer") REFERENCES "sail" ("id_author","id_model","id_buyer")
+  FOREIGN KEY ("id_author","id_model","id_buyer") REFERENCES "sale" ("id_author","id_model","id_buyer")
 );
