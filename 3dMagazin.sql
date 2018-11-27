@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXISTS sale (
   FOREIGN KEY ("id_author","id_model") REFERENCES "models" ("id_author","id_model"),
   FOREIGN KEY ("id_buyer") REFERENCES "threed_user" ("id_user")
 );
-CREATE TABLE IF NOT EXISTS sail_story (
+CREATE TABLE IF NOT EXISTS sale_story (
   "id_author"   BIGINT NOT NULL,
   "id_buyer"    BIGINT NOT NULL,
   "id_model"    BIGINT NOT NULL,
