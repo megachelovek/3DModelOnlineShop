@@ -9,10 +9,10 @@ import java.util.Scanner;
 
 public class Main {
     public static void main (String[] args){
-        String DRIVER = "jdbc:postgresql://localhost:5432/";
+        String postgredb = "jdbc:postgresql://localhost:5432/";
         Scanner in = new Scanner(System.in);
         System.out.println("Введите адрес базы данных: (3DModelOnlineShop)");
-        String url = DRIVER + "3DModelOnlineShop"; //in.nextLine();
+        String url = postgredb + "3DModelOnlineShop"; //in.nextLine();
         System.out.println("Введите логин базы данных: (postgres)");
         String login = "postgres" ; //in.nextLine();
         System.out.println("Введите пароль базы данных: (admin)");
