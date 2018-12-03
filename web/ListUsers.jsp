@@ -21,7 +21,7 @@
     <td>Почта</td>
     </thead>
     <tbody>
-   <%-- <c:forEach items="${users}" var="user">
+    <c:forEach items="${users}" var="user">
     <tr>
         <td>${user.name}
         </td>
@@ -31,9 +31,9 @@
         </td>
         <td><a href="/editUser?user_id=${user.user_id}">Изменить</a></td>
         <td><a href="/deleteUser?user_id=${user.user_id}">Удалить</a></td>
-    </tr>--%>
+    </tr>
     </tbody>
-    <%--</c:forEach>--%>
+    </c:forEach>
 </table>
 </body>
 </html>
