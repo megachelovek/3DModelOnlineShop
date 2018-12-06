@@ -24,6 +24,6 @@ public class ListUserServlet extends HttpServlet {
     List<User> users = userDAO.getUsers();
     session.setAttribute("users", users);
     session.setAttribute("userDAO", userDAO);
-    req.getRequestDispatcher("smartphone.jsp").forward(req, resp);
+    req.getRequestDispatcher("ListUsers.jsp").forward(req, resp);
   }
 }
