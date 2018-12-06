@@ -8,8 +8,9 @@ public class Model {
     private int vertex;
     private ModelFormat format;
     private Render render;
+    private int price;
 
-    public Model(User author, long id_model, String name, int poly, int vertex, ModelFormat format, Render render){
+    public Model(User author, long id_model, String name, int poly, int vertex, ModelFormat format, Render render, int price){
         this.author=author;
         this.id_model=id_model;
         this.name=name;
@@ -17,6 +18,7 @@ public class Model {
         this.vertex=vertex;
         this.format=format;
         this.render=render;
+        this.price=price;
     }
 
     public String getName() {
@@ -73,5 +75,13 @@ public class Model {
 
     public void setRender(Render render) {
         this.render = render;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 }
