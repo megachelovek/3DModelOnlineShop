@@ -1,58 +1,58 @@
 CREATE TABLE IF NOT EXISTS threed_user (
-  "id_user"      BIGINT          NOT NULL,
-  "nik"    CHARACTER VARYING(50) NOT NULL UNIQUE,
-  "folowCount" INTEGER           NOT NULL,
-  "modelsCount"       INTEGER    NOT NULL,
-  "raiting" 	INTEGER          NOT NULL,
+  "user_id"      BIGINT          NOT NULL,
+  "user_name"    CHARACTER VARYING(50) NOT NULL UNIQUE,
+  "followers_count" INTEGER           NOT NULL,
+  "models_count"       INTEGER    NOT NULL,
+  "rating" 	INTEGER          NOT NULL,
   "account"     BIGINT          NOT NULL,
-  PRIMARY KEY ("id_user")
+  PRIMARY KEY ("user_id")
 );
-CREATE TABLE IF NOT EXISTS folowing (
-  "id_user"      BIGINT NOT NULL,
-  "id_folowing_user"      BIGINT NOT NULL,
-  PRIMARY KEY ("id_user","id_folowing_user"),
-  FOREIGN KEY ("id_folowing_user") REFERENCES "threed_user" ("id_user"),
-  FOREIGN KEY ("id_user") REFERENCES "threed_user" ("id_user")
+CREATE TABLE IF NOT EXISTS following (
+  "user_id"      BIGINT NOT NULL,
+  "following_user_id"      BIGINT NOT NULL,
+  PRIMARY KEY ("user_id","following_user_id"),
+  FOREIGN KEY ("following_user_id") REFERENCES "threed_user" ("user_id"),
+  FOREIGN KEY ("user_id") REFERENCES "threed_user" ("user_id")
 );
 CREATE TABLE IF NOT EXISTS model_format (
-  "id_format"      BIGINT NOT NULL,
-  "formatName"      CHARACTER VARYING(50),
-  PRIMARY KEY ("id_format")
+  "format_id"      BIGINT NOT NULL,
+  "format_name"      CHARACTER VARYING(50),
+  PRIMARY KEY ("format_id")
 );
-CREATE TABLE IF NOT EXISTS renders (
-  "id_render"      BIGINT NOT NULL,
+CREATE TABLE IF NOT EXISTS render (
+  "render_id"      BIGINT NOT NULL,
   "size"      INTEGER NOT NULL,
-  "po_render" CHARACTER VARYING(50),
-  PRIMARY KEY ("id_render")
+  "render_software" CHARACTER VARYING(50),
+  PRIMARY KEY ("render_id")
 );
-CREATE TABLE IF NOT EXISTS models (
-  "id_author"   BIGINT NOT NULL,
-  "id_model"    BIGINT NOT NULL,
-  "modelName"   CHARACTER VARYING(50) NOT NULL,
-  "polyCount"   INTEGER NOT NULL,
-  "polyVertex"  INTEGER NOT NULL,
-  "id_render"   BIGINT NOT NULL,
-  "id_format"   BIGINT NOT NULL,
-  FOREIGN KEY ("id_author") REFERENCES "threed_user" ("id_user"),
-  FOREIGN KEY ("id_render") REFERENCES "renders" ("id_render"),
-  FOREIGN KEY ("id_format") REFERENCES "model_format" ("id_format"),
-  PRIMARY KEY ("id_author","id_model")
+CREATE TABLE IF NOT EXISTS model (
+  "author_id"   BIGINT NOT NULL,
+  "model_id"    BIGINT NOT NULL,
+  "model_name"   CHARACTER VARYING(50) NOT NULL,
+  "poly_count"   INTEGER NOT NULL,
+  "poly_vertex"  INTEGER NOT NULL,
+  "render_id"   BIGINT NOT NULL,
+  "format_id"   BIGINT NOT NULL,
+  FOREIGN KEY ("author_id") REFERENCES "threed_user" ("user_id"),
+  FOREIGN KEY ("render_id") REFERENCES "render" ("render_id"),
+  FOREIGN KEY ("format_id") REFERENCES "model_format" ("format_id"),
+  PRIMARY KEY ("author_id","model_id")
   
 );
-CREATE TABLE IF NOT EXISTS sale (
-  "id_author"   BIGINT NOT NULL,
-  "id_buyer"    BIGINT NOT NULL,
-  "id_model"    BIGINT NOT NULL,
-  "count"       INTEGER,
-  PRIMARY KEY ("id_author","id_buyer","id_model"),
-  FOREIGN KEY ("id_author","id_model") REFERENCES "models" ("id_author","id_model"),
-  FOREIGN KEY ("id_buyer") REFERENCES "threed_user" ("id_user")
+CREATE TABLE IF NOT EXISTS bill (
+  "author_id"   BIGINT NOT NULL,
+  "buyer_id"    BIGINT NOT NULL,
+  "model_id"    BIGINT NOT NULL,
+  "amount"       INTEGER,
+  PRIMARY KEY ("author_id","buyer_id","model_id"),
+  FOREIGN KEY ("author_id","model_id") REFERENCES "model" ("author_id","model_id"),
+  FOREIGN KEY ("buyer_id") REFERENCES "threed_user" ("user_id")
 );
-CREATE TABLE IF NOT EXISTS sale_story (
-  "id_author"   BIGINT NOT NULL,
-  "id_buyer"    BIGINT NOT NULL,
-  "id_model"    BIGINT NOT NULL,
+CREATE TABLE IF NOT EXISTS purchases_story (
+  "author_id"   BIGINT NOT NULL,
+  "buyer_id"    BIGINT NOT NULL,
+  "model_id"    BIGINT NOT NULL,
   "date"        DATE NOT NULL,
-  PRIMARY KEY ("id_author","id_buyer","id_model"),
-  FOREIGN KEY ("id_author","id_model","id_buyer") REFERENCES "sale" ("id_author","id_model","id_buyer")
+  PRIMARY KEY ("author_id","buyer_id","model_id"),
+  FOREIGN KEY ("author_id","model_id","buyer_id") REFERENCES "bill" ("author_id","model_id","buyer_id")
 );

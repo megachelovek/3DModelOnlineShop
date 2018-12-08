@@ -2,50 +2,50 @@ package model;
 
 public class User {
 
-    private long id_user;
-    private String nik;
-    private int folowCount;
-    private int modelCount;
-    private int raiting;
+    private long userId;
+    private String userName;
+    private int followersCount;
+    private int modelsCount;
+    private int rating;
     private long account;
 
-    public User(long id_user,String nik, int folowCount, int modelCount, int raiting, long account){
-        this.account=account;
-        this.raiting=raiting;
-        this.modelCount=modelCount;
-        this.folowCount=folowCount;
-        this.id_user=id_user;
-        this.nik=nik;
+    public User(long id_user, String nik, int folowCount, int modelCount, int rating, long account){
+        this.account = account;
+        this.rating = rating;
+        this.modelsCount = modelCount;
+        this.followersCount = folowCount;
+        this.userId = id_user;
+        this.userName = nik;
     }
-    public String getNik(){
-        return nik;
+    public String getUserName(){
+        return userName;
     }
-    public void setNik(String n){
-        nik=n;
+    public void setUserName(String n){
+        userName =n;
     }
     public long getId(){
-        return id_user;
+        return userId;
     }
     public void setId(long id){
-        id_user=id;
+        userId =id;
     }
-    public int getFolowCount(){
-        return folowCount;
+    public int getFollowersCount(){
+        return followersCount;
     }
-    public void setFolowCount(int folow){
-        folowCount=folow;
+    public void setFollowersCount(int folow){
+        followersCount =folow;
     }
     public int getModelCount(){
-        return modelCount;
+        return modelsCount;
     }
     public void setModelCount(int mod){
-        modelCount=mod;
+        modelsCount =mod;
     }
-    public int getRaiting(){
-        return raiting;
+    public int getRating(){
+        return rating;
     }
-    public void setRaiting(int r){
-        raiting=r;
+    public void setRating(int r){
+        rating =r;
     }
     public long getAccount(){
         return account;
