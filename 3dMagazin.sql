@@ -39,20 +39,21 @@ CREATE TABLE IF NOT EXISTS model (
   PRIMARY KEY ("author_id","model_id")
   
 );
-CREATE TABLE IF NOT EXISTS bill (
+CREATE TABLE IF NOT EXISTS purchase (
   "author_id"   BIGINT NOT NULL,
   "buyer_id"    BIGINT NOT NULL,
   "model_id"    BIGINT NOT NULL,
   "amount"       INTEGER,
+  "date"        DATE NOT NULL,
   PRIMARY KEY ("author_id","buyer_id","model_id"),
   FOREIGN KEY ("author_id","model_id") REFERENCES "model" ("author_id","model_id"),
   FOREIGN KEY ("buyer_id") REFERENCES "threed_user" ("user_id")
-);
+);/*
 CREATE TABLE IF NOT EXISTS purchases_story (
   "author_id"   BIGINT NOT NULL,
   "buyer_id"    BIGINT NOT NULL,
   "model_id"    BIGINT NOT NULL,
   "date"        DATE NOT NULL,
-  PRIMARY KEY ("author_id","buyer_id","model_id"),
-  FOREIGN KEY ("author_id","model_id","buyer_id") REFERENCES "bill" ("author_id","model_id","buyer_id")
-);
+  PRIMARY KEY ("author_id","buyer_id","model_id", "date"),
+  FOREIGN KEY ("author_id","model_id","buyer_id") REFERENCES "purchase" ("author_id","model_id","buyer_id")
+);*/

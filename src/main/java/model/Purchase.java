@@ -1,20 +1,24 @@
 package model;
 
-public class Bill {
+import java.sql.Date;
+
+public class Purchase {
     private User author;
     private User buyer;
     private Model model;
     private int amount;
+    private Date date;
 
-    public Bill(){
+    public Purchase(){
 
     }
 
-    public Bill(User author, User buyer, Model model, int amount) {
+    public Purchase(User author, User buyer, Model model, int amount, Date date) {
         this.author = author;
         this.buyer = buyer;
         this.model = model;
         this.amount = amount;
+        this.date = date;
     }
 
     public User getAuthor() {
@@ -47,5 +51,13 @@ public class Bill {
 
     public void setAmount(int amount) {
         this.amount = amount;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 }

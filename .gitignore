@@ -1,1 +1,7 @@
-.idea\
+.idea/*
+target/*
+.idea/libraries/Maven__javax_servlet_javax_servlet_api_3_0_1.xml
+.idea/uiDesigner.xml
+.idea/workspace.xml
+.idea/workspace.xml
+.idea/workspace.xml
