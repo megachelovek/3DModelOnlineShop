@@ -8,22 +8,18 @@ import java.util.Properties;
 import  org.postgresql.Driver;
 
 public abstract class DAO {
-  protected String driver = null;
+  private String driver = null;
   protected String url = null;
-  protected Properties properties = null;
+  private Properties properties = null;
 
   public DAO(String driver) {
     this.driver = driver;
   }
 
-  protected void registerDriverManager() {
+  private void registerDriverManager() {
     try {
       Class.forName(driver).newInstance();
-    } catch (InstantiationException e) {
-      e.printStackTrace();
-    } catch (IllegalAccessException e) {
-      e.printStackTrace();
-    } catch (ClassNotFoundException e) {
+    } catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
       e.printStackTrace();
     }
   }
@@ -57,4 +53,6 @@ public abstract class DAO {
     }
     return result;
   }
+
+  public void sendMessage(String message){}
 }

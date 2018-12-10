@@ -1,8 +1,7 @@
 package servlet.User;
 
 import dao.DAO;
-import dao.UserDAO;
-import dao.implementsDAO.UserDAOimplements;
+import dao.modelsDAO.UserDAO;
 import model.User;
 
 import javax.servlet.ServletException;
@@ -20,7 +19,7 @@ public class ListUserServlet extends HttpServlet {
   protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     HttpSession session = req.getSession();
     DAO dao = (DAO) session.getAttribute("dao");
-    UserDAO userDAO = new UserDAOimplements(dao);
+    UserDAO userDAO = new UserDAO(dao);
     List<User> users = userDAO.getUsers();
     session.setAttribute("users", users);
     session.setAttribute("userDAO", userDAO);
