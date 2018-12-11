@@ -73,12 +73,12 @@ public class ModelDAO {
     }
 
 
-    public Model getModel(long model_id) {
+    public Model getModel(long id) {
         Model model = null;
         String query = "SELECT * FROM " + MODEL + " WHERE " + MODEL_ID + " = ?";
         try (Connection connection = dao.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setLong(1,model_id);
+            preparedStatement.setLong(1,id);
             ResultSet resultSet = preparedStatement.executeQuery();
             long modelId = resultSet.getLong(MODEL_ID);
             long authorId = resultSet.getLong(AUTHOR);

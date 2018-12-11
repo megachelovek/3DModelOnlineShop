@@ -1,18 +1,18 @@
 package model;
 
 public class ModelFormat {
-    private long id_format;
+    private long idFormat;
     private String formatName;
 
-    public ModelFormat(long id_format, String formatName){
+    public ModelFormat(long id, String formatName){
         this.formatName=formatName;
-        this.id_format=id_format;
+        this.idFormat=id;
     }
     public long getIdFormat() {
-        return id_format;
+        return idFormat;
     }
     public void setIdFormat(long id){
-        this.id_format=id;
+        this.idFormat=id;
     }
 
     public String getFormatName() {

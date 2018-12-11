@@ -2,16 +2,16 @@ package model;
 
 public class Model {
     private User author;
-    private long id_model;
+    private long idModel;
     private String name;
     private int poly;
     private int vertex;
     private ModelFormat format;
     private Render render;
 
-    public Model(User author, long id_model, String name, int poly, int vertex, ModelFormat format, Render render){
+    public Model(User author, long id, String name, int poly, int vertex, ModelFormat format, Render render){
         this.author=author;
-        this.id_model=id_model;
+        this.idModel=id;
         this.name=name;
         this.poly=poly;
         this.vertex=vertex;
@@ -44,11 +44,11 @@ public class Model {
     }
 
     public long getIdModel() {
-        return id_model;
+        return idModel;
     }
 
-    public void setIdModel(long id_model) {
-        this.id_model = id_model;
+    public void setIdModel(long id) {
+        this.idModel = id;
     }
 
     public void setAuthor(User author) {

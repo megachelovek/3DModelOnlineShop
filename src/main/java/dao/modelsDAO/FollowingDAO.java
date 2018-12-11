@@ -38,12 +38,12 @@ public class FollowingDAO{
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                long user_id = resultSet.getLong(USER_ID);
+                long userId = resultSet.getLong(USER_ID);
                 UserDAO idolDAO = new UserDAO(dao);
-                User idol = idolDAO.getUser(user_id);
+                User idol = idolDAO.getUser(userId);
                 long following_user_id = resultSet.getLong(FOLLOWING_USER_ID);
                 UserDAO followerDAO = new UserDAO(dao);
-                User follower  = followerDAO.getUser(user_id);
+                User follower  = followerDAO.getUser(userId);
                 Following following = new Following(follower, idol);
                 followings.add(following);
             }

@@ -9,12 +9,12 @@ public class User {
     private int rating;
     private long account;
 
-    public User(long id_user, String nik, int folowCount, int modelCount, int rating, long account){
+    public User(long id, String nik, int folowCount, int modelCount, int rating, long account){
         this.account = account;
         this.rating = rating;
         this.modelsCount = modelCount;
         this.followersCount = folowCount;
-        this.userId = id_user;
+        this.userId = id;
         this.userName = nik;
     }
     public String getUserName(){
