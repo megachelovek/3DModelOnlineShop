@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/listSmartphone")
+@WebServlet("/listusers")
 public class ListUserServlet extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -24,6 +24,6 @@ public class ListUserServlet extends HttpServlet {
     List<User> users = userDAO.getUsers();
     session.setAttribute("users", users);
     session.setAttribute("userDAO", userDAO);
-    req.getRequestDispatcher("smartphone.jsp").forward(req, resp);
+    req.getRequestDispatcher("ListUsers.jsp").forward(req, resp);
   }
 }
