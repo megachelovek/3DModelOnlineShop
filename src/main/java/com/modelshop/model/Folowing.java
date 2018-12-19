@@ -1,4 +1,4 @@
-package model;
+package com.modelshop.model;
 
 public class Folowing {
     private User folow;

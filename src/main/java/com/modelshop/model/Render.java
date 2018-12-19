@@ -1,4 +1,4 @@
-package model;
+package com.modelshop.model;
 
 public class Render {
     private long id_render;

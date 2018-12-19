@@ -1,9 +1,9 @@
-package servlet.User;
+package com.modelshop.servlet.User;
 
-import dao.DAO;
-import dao.UserDAO;
-import dao.implementsDAO.UserDAOimplements;
-import model.User;
+import com.modelshop.dao.DAO;
+import com.modelshop.dao.UserDAO;
+import com.modelshop.dao.implementsDAO.UserDAOimplements;
+import com.modelshop.model.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,7 +19,7 @@ public class ListUserServlet extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     HttpSession session = req.getSession();
-    DAO dao = (DAO) session.getAttribute("dao");
+    DAO dao = (DAO) session.getAttribute("com/modelshop/dao");
     UserDAO userDAO = new UserDAOimplements(dao);
     List<User> users = userDAO.getUsers();
     session.setAttribute("users", users);

@@ -1,4 +1,4 @@
-package model;
+package com.modelshop.model;
 
 public class ModelFormat {
     private long id_format;
