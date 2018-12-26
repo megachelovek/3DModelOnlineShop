@@ -49,12 +49,12 @@ public class ModelFormatDAO {
     }
 
 
-    public ModelFormat getModelFormat(long modelFormat_id) {
+    public ModelFormat getModelFormat(long id) {
         ModelFormat modelFormat = null;
         String query = "SELECT * FROM " + MODEL_FORMAT + " ORDER BY " + FORMAT_ID + " WHERE " + MODEL_FORMAT + " = ?";
         try (Connection connection = dao.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setLong(1, modelFormat_id);
+            preparedStatement.setLong(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {

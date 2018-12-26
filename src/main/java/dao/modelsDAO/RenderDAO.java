@@ -58,12 +58,12 @@ public class RenderDAO {
     }
 
 
-    public Render getRender(long render_id) {
+    public Render getRender(long id) {
         Render render = null;
         String query = "SELECT * FROM " + RENDER + " WHERE " + RENDER_ID + " = ?";
         try (Connection connection = dao.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setLong(1, render_id);
+            preparedStatement.setLong(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
             long renderId = resultSet.getLong(RENDER_ID);
             int size = resultSet.getInt(SIZE);

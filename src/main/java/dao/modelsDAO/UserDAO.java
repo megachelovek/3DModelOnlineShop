@@ -44,13 +44,13 @@ public class UserDAO {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                long user_id = resultSet.getLong(USER_ID);
+                long userId = resultSet.getLong(USER_ID);
                 String name = resultSet.getString(USER_NAME);
                 int followers = resultSet.getInt(FOLLOWERS_COUNT);
                 int models = resultSet.getInt(MODELS_COUNT);
                 int rating = resultSet.getInt(RATING);
                 long account = resultSet.getInt(ACCOUNT);
-                User user = new User(user_id, name, followers, models, rating, account);
+                User user = new User(userId, name, followers, models, rating, account);
                 users.add(user);
             }
         } catch (SQLException e) {
@@ -59,12 +59,12 @@ public class UserDAO {
         return users;
     }
 
-    public User getUser(long user_id) {
+    public User getUser(long id) {
         User user = null;
         String query = "SELECT * FROM " + USER +" WHERE " + USER_ID + " = ?";
         try (Connection connection = dao.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setLong(1, user_id);
+            preparedStatement.setLong(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 String name = resultSet.getString(USER_NAME);
@@ -72,7 +72,7 @@ public class UserDAO {
                 int models = resultSet.getInt(MODELS_COUNT);
                 int rating = resultSet.getInt(RATING);
                 long account = resultSet.getInt(ACCOUNT);
-                user = new User(user_id, name, followers, models, rating, account);
+                user = new User(id, name, followers, models, rating, account);
             }
         } catch (SQLException e) {
             dao.sendMessage("Query executing error");

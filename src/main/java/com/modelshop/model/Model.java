@@ -1,22 +1,24 @@
-package model;
+package com.modelshop.model;
 
 public class Model {
     private User author;
-    private long idModel;
+    private long id_model;
     private String name;
     private int poly;
     private int vertex;
     private ModelFormat format;
     private Render render;
+    private int price;
 
-    public Model(User author, long id, String name, int poly, int vertex, ModelFormat format, Render render){
+    public Model(User author, long id_model, String name, int poly, int vertex, ModelFormat format, Render render, int price){
         this.author=author;
-        this.idModel=id;
+        this.id_model=id_model;
         this.name=name;
         this.poly=poly;
         this.vertex=vertex;
         this.format=format;
         this.render=render;
+        this.price=price;
     }
 
     public String getName() {
@@ -44,11 +46,11 @@ public class Model {
     }
 
     public long getIdModel() {
-        return idModel;
+        return id_model;
     }
 
-    public void setIdModel(long id) {
-        this.idModel = id;
+    public void setIdModel(long id_model) {
+        this.id_model = id_model;
     }
 
     public void setAuthor(User author) {
@@ -73,5 +75,13 @@ public class Model {
 
     public void setRender(Render render) {
         this.render = render;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 }

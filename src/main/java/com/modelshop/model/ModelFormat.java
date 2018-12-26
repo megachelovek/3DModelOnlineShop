@@ -1,18 +1,18 @@
-package model;
+package com.modelshop.model;
 
 public class ModelFormat {
-    private long idFormat;
+    private long id_format;
     private String formatName;
 
-    public ModelFormat(long id, String formatName){
+    public ModelFormat(long id_format, String formatName){
         this.formatName=formatName;
-        this.idFormat=id;
+        this.id_format=id_format;
     }
     public long getIdFormat() {
-        return idFormat;
+        return id_format;
     }
     public void setIdFormat(long id){
-        this.idFormat=id;
+        this.id_format=id;
     }
 
     public String getFormatName() {
