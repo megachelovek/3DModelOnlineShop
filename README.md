@@ -1,6 +1,6 @@
 # 3D Model OnlineShop
 
-Tried to implement a simple online shop based on the java servlets.
+Tried to implement a simple online shop based on the java servlets. 
 
 ### Technology stack / Libraries
   - Java
